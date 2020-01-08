@@ -56,16 +56,14 @@
             <VuePhoneNumberInput
               id="phoneNumber1"
               v-model="phoneNumber"
-              color="dodgerblue"
+              color="#dfe1e3"
+              size="lg"
               :dark="dark"
               :disabled="disabled"
-              :ignored-countries="countriesIgnored"
-              :preferred-countries="countriesList"
               :loader="hasLoaderActive"
-              :default-country-code="defaultCountry"
-              clearable
               :error="hasErrorActive"
               class="mb-2"
+              border-radius="10"
               @update="onUpdate"
             />
             <b>v-model</b> : {{ phoneNumber }}

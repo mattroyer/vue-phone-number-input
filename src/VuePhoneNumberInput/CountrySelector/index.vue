@@ -60,14 +60,6 @@
         </svg>
       </slot>
     </div>
-    <label
-      ref="label"
-      :style="[labelColorStyle]"
-      class="country-selector__label"
-      @click.stop="toggleList"
-    >
-      {{ hint || label }}
-    </label>
     <Transition name="slide">
       <div
         v-show="hasListOpen"
@@ -297,7 +289,7 @@
 
   // Light Theme
   .country-selector {
-    font-family: Roboto, -apple-system, BlinkMacSystemFont, Segoe UI, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    font-family: Avenir-Medium, Roboto, -apple-system, BlinkMacSystemFont, Segoe UI, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
     position: relative;
     height: 40px;
     min-height: 40px;
@@ -538,7 +530,7 @@
       }
 
       .country-selector__input {
-        padding-top: 14px;
+        // padding-top: 14px;
       }
     }
 
@@ -623,27 +615,27 @@
 
       &.has-value {
         .country-selector__input {
-          padding-top: 12px;
+          // padding-top: 12px;
         }
       }
     }
 
     &.lg {
-      height: 48px;
-      min-height: 48px;
+      height: 55px;
+      min-height: 55px;
 
       .country-selector__input {
-        height: 48px;
-        min-height: 48px;
-        font-size: 14px;
+        height: 55px;
+        min-height: 55px;
+        font-size: 16px;
       }
 
       .country-selector__label {
-        font-size: 14px;
+        font-size: 16px;
       }
 
       .country-selector__country-flag {
-        top: 25px;
+        top: 22.5px;
 
         img {
           zoom: 0.45;
@@ -656,7 +648,7 @@
 
       &.has-value {
         .country-selector__input {
-          padding-top: 18px;
+          // padding-top: 18px;
         }
       }
     }

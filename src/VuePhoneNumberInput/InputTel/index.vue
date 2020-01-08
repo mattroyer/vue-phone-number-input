@@ -38,17 +38,6 @@
       @blur="onBlur"
       @click="$emit('click', $event)"
     >
-    <label
-      ref="label"
-      :for="id"
-      :class="error ? 'text-danger' : null"
-      class="input-tel__label"
-      :style="[labelColorStyle]"
-      @click="focusInput"
-    >
-      {{ hintValue || labelValue }}
-    </label>
-
     <button
       v-if="clearable && inputValue"
       class="input-tel__clear"
@@ -345,25 +334,19 @@
 
       .input-tel {
         &__input {
-          border-color: $primary-color;
-          box-shadow: 0 0 0 0.2rem $primary-color-transparency;
         }
 
         &__label {
-          color: $primary-color;
         }
       }
 
       &.has-error {
         .input-tel__input {
-          box-shadow: 0 0 0 0.2rem $danger-color-transparency;
         }
       }
 
       &.is-valid {
         .input-tel__input {
-          border-color: $success-color;
-          box-shadow: 0 0 0 0.2rem $success-color-transparency;
         }
       }
     }
@@ -376,7 +359,7 @@
       }
 
       .input-tel__input {
-        padding-top: 14px;
+        // padding-top: 14px;
       }
     }
 
@@ -389,7 +372,7 @@
       }
 
       .input-tel__input {
-        padding-top: 14px;
+        //padding-top: 14px;
       }
     }
 
@@ -477,13 +460,13 @@
     }
 
     &.lg {
-      height: 48px;
-      min-height: 48px;
+      height: 55px;
+      min-height: 55px;
 
       .input-tel__input {
-        font-size: 14px;
-        height: 48px;
-        min-height: 48px;
+        font-size: 16px;
+        height: 55px;
+        min-height: 55px;
       }
 
       .input-tel__label {
@@ -492,7 +475,7 @@
 
       &.has-value {
         .input-tel__input {
-          padding-top: 16px;
+          // padding-top: 16px;
         }
       }
     }

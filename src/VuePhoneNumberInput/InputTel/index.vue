@@ -331,24 +331,6 @@
 
     &.is-focused {
       z-index: 1;
-
-      .input-tel {
-        &__input {
-        }
-
-        &__label {
-        }
-      }
-
-      &.has-error {
-        .input-tel__input {
-        }
-      }
-
-      &.is-valid {
-        .input-tel__input {
-        }
-      }
     }
 
     &.has-value {

@@ -7,6 +7,7 @@
     <div
       v-if="!noCountrySelector"
       class="select-country-container"
+      :class="{ 'no-phone-container': noPhone }"
     >
       <CountrySelector
         :id="`${uniqueId}_country_selector`"
@@ -23,11 +24,13 @@
         :ignored-countries="ignoredCountries"
         :label="t.countrySelectorLabel"
         :no-flags="noFlags"
+        :no-phone="noPhone"
         :show-code-on-list="showCodeOnList"
         :size="size"
         :dark="dark"
         :theme="theme"
         class="input-country-selector"
+        :class="{ 'no-phone': noPhone }"
       >
         <slot
           slot="arrow"
@@ -35,7 +38,7 @@
         />
       </CountrySelector>
     </div>
-    <div class="flex-1">
+    <div v-if="!noPhone" class="flex-1">
       <InputTel
         :id="`${uniqueId}_phone_number`"
         ref="PhoneNumberInput"
@@ -106,6 +109,7 @@
       translations: { type: Object, default: null },
       noValidatorState: { type: Boolean, default: false },
       noFlags: { type: Boolean, default: false },
+      noPhone: { type: Boolean, default: false },
       error: { type: Boolean, default: false },
       noExample: { type: Boolean, default: false },
       required: { type: Boolean, default: false },
@@ -321,4 +325,18 @@
       max-width: 130px;
     }
   }
+
+ .no-phone-container {
+  width: unset !important;
+  min-width: unset !important;
+  max-width: unset !important;
+}
+
+.no-phone /deep/ .country-selector__input {
+  border-radius: 10px;
+  width: unset;
+  max-width: 300px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 </style>

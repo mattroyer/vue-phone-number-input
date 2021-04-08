@@ -136,6 +136,7 @@
       onlyCountries: { type: Array, default: null },
       ignoredCountries: { type: Array, default: null },
       noFlags: { type: Boolean, default: false },
+      noPhone: { type: Boolean, default: false },
       countriesHeight: { type: Number, default: 35 },
       showCodeOnList: { type: Boolean, default: false }
     },
@@ -188,8 +189,11 @@
       tmpValueIndex () {
         return this.countriesSorted.findIndex(c => c.iso2 === this.tmpValue)
       },
+      countryName() {
+        return this.noPhone && this.selectedValueIndex ? ' ' + this.countriesSorted[this.selectedValueIndex].name : ''
+      },
       callingCode () {
-        return this.value ? `+${getCountryCallingCode(this.value)}` : null
+        return this.value ? `+${getCountryCallingCode(this.value)}${this.countryName}` : null
       }
     },
     methods: {

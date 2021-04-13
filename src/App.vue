@@ -58,12 +58,14 @@
               v-model="phoneNumber"
               color="#dfe1e3"
               size="lg"
+              :no-phone="true"
+              no-phone-width="520px"
               :dark="dark"
               :disabled="disabled"
               :loader="hasLoaderActive"
               :error="hasErrorActive"
               class="mb-2"
-              border-radius="10"
+              :border-radius="8"
               @update="onUpdate"
             />
             <b>v-model</b> : {{ phoneNumber }}

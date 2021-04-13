@@ -7,7 +7,7 @@
     <div
       v-if="!noCountrySelector"
       class="select-country-container"
-      :class="{ 'no-phone-container': noPhone }"
+      :style="{ 'width': noPhoneWidth, 'min-width': noPhoneWidth, 'max-width': noPhoneWidth }"
     >
       <CountrySelector
         :id="`${uniqueId}_country_selector`"
@@ -25,6 +25,8 @@
         :label="t.countrySelectorLabel"
         :no-flags="noFlags"
         :no-phone="noPhone"
+        :no-phone-width="noPhoneWidth"
+        :border-radius="borderRadius"
         :show-code-on-list="showCodeOnList"
         :size="size"
         :dark="dark"
@@ -110,6 +112,7 @@
       noValidatorState: { type: Boolean, default: false },
       noFlags: { type: Boolean, default: false },
       noPhone: { type: Boolean, default: false },
+      noPhoneWidth: { type: String, default: null },
       error: { type: Boolean, default: false },
       noExample: { type: Boolean, default: false },
       required: { type: Boolean, default: false },
@@ -147,7 +150,9 @@
         },
         set (newCountry) {
           this.emitValues({countryCode: newCountry, phoneNumber: this.phoneNumber})
-          this.$refs.PhoneNumberInput.$el.querySelector('input').focus()
+          if (!this.noPhone) {
+            this.$refs.PhoneNumberInput.$el.querySelector('input').focus()
+          }
         }
       },
       phoneNumber: {
@@ -325,18 +330,4 @@
       max-width: 130px;
     }
   }
-
- .no-phone-container {
-  width: unset !important;
-  min-width: unset !important;
-  max-width: unset !important;
-}
-
-.no-phone /deep/ .country-selector__input {
-  border-radius: 10px;
-  width: unset;
-  max-width: 300px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
 </style>

@@ -1,6 +1,6 @@
 {
   "name": "pronto-phone-number-input",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "description": "A phone number input made with Vue JS && libphonenumber-js",
   "author": "Chris Lee <chris@bowtieriot.com>",
   "scripts": {

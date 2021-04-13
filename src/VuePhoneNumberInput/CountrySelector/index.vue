@@ -31,8 +31,9 @@
       :placeholder="label"
       :disabled="disabled"
       class="country-selector__input"
+      :class="{ 'country-selector__input-no-phone': noPhone }"
       readonly
-      :style="[radiusLeftStyle, inputBorderStyle, inputBoxShadowStyle]"
+      :style="[radiusLeftStyle, inputBorderStyle, inputBoxShadowStyle, noPhone ? radiusRightStyle : null, { 'width': noPhoneWidth, 'max-width': noPhoneWidth }]"
       @focus="isFocus = true"
       @keydown="keyboardNav"
       @click.stop="toggleList"
@@ -137,6 +138,7 @@
       ignoredCountries: { type: Array, default: null },
       noFlags: { type: Boolean, default: false },
       noPhone: { type: Boolean, default: false },
+      noPhoneWidth: { type: String, default: null },
       countriesHeight: { type: Number, default: 35 },
       showCodeOnList: { type: Boolean, default: false }
     },
@@ -671,5 +673,10 @@
       z-index: 998;
       transform: translateY(-20px);
     }
+  }
+
+  .country-selector__input-no-phone {
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 </style>

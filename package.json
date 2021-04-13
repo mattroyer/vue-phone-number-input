@@ -71,7 +71,7 @@
     "not ie <= 8"
   ],
   "license": "MIT",
-  "main": "dist/vue-phone-number-input.common.js",
+  "main": "dist/pronto-phone-number-input.common.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/wrinkleydog/vue-phone-number-input.git"

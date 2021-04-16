@@ -222,7 +222,7 @@
           throw new Error('MazPhoneNumberInput: Do not use "fetch-country" and "default-country-code" options in the same time')
         }
 
-        if (this.defaultCountryCode && this.noUseBrowserLocale) {
+        if (!this.noPhone && this.defaultCountryCode && this.noUseBrowserLocale) {
           throw new Error('MazPhoneNumberInput: If you use a "default-country-code", do not use "no-use-browser-locale" options')
         }
 
